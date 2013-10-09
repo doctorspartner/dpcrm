@@ -1,0 +1,7 @@
+<h2> List of Companies </h2>
+
+<%@companies.each do |c|%>
+	<p> <%=link_to c.name, "/companies/#{c.id}"%> </br> </p>
+<%end%>
+
+<%=link_to "Create a Company", "/companies/new", :class => 'btn btn-mini btn-primary'%>

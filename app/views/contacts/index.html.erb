@@ -1,0 +1,53 @@
+<h2> List of Contacts 
+	<%if params[:id]%>
+		for <%=@company.name%>
+	<%end%>
+	</h2>
+		
+	
+
+<div class = 'row'>
+	<div class = 'span3'>
+		<b>Last Name</b>
+	</div>
+	
+	<div class = 'span3'>
+		<b>First Name</b>
+	</div>
+	
+	<div class = 'span3'>
+		<b>Phone </b>
+	</div>
+	
+</div>
+
+<%@contacts.each do |c|%>
+<div class = 'row'>
+	
+	<div class = 'span3'>
+		<%if params[:id]%>
+			<%=link_to c.last_name, "/companies/#{@company.id}/contacts/#{c.id}"%>
+		<%else%>
+			<%=link_to c.last_name, "/contacts/#{c.id}"%>
+		<%end%>
+	</div>
+	
+	<div class = 'span3'>
+		<%=c.first_name%>
+	</div>
+	
+	<div class = 'span3'>
+		<%=c.phone%></p>
+	</div>
+
+</div>
+
+
+<%end%>
+
+<%if params[:id]%>
+	<%=link_to 'Add a new Contact', new_contact_path, :class => 'btn btn-mini btn-primary'%>
+	<%=link_to 'Return to Company Info', company_path(@company), :class => 'btn btn-mini btn-primary'%>
+<%else%>
+	<%=link_to 'Add a new Contact', "/contacts/new", :class => 'btn btn-mini btn-primary'%>
+<%end%>

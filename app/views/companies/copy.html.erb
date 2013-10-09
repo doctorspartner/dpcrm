@@ -1,0 +1,5 @@
+<h2> Select Company to Copy From </h2>
+<form action="/companies/new" method='get'>
+	<%=select_tag 'copy_company', options_for_select(@companies.collect{|c|[c.name, c.id]})%>
+	<%=button_to 'Continue', '/companies/new'%>
+</form>

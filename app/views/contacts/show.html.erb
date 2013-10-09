@@ -1,0 +1,49 @@
+<h2> Contact Details </h2>
+
+<div class = 'row-fluid'>
+	
+	<div class = 'span3'>
+		
+				<ul>First Name: </ul>
+				<ul>Last Name: </ul>
+				<ul>Tags: </ul>
+				<ul>Assigned To: </ul>
+				<ul>Title: </ul>
+				<ul>Email: </ul>
+				<ul>Phone: </ul>
+				<ul>Mobile Phone: </ul>
+				<ul>Address 1: </ul>
+				<ul>Address 2: </ul>
+				<ul>City: </ul>
+				<ul>State: </ul>
+				<ul>Zip: </ul>
+				<ul>Comments: </ul>
+				<ul>Conference: </ul>
+				<ul>Support Package: </ul>
+	</div>
+	
+	<div class = 'span4'>
+	
+	<ul><%=@contact.first_name %></br></ul>
+    <ul><%=@contact.last_name %></br></ul>
+    <ul><%=@contact.tags %></br></ul>
+    <ul><%=@contact.assigned_to %></br></ul>
+    <ul><%=@contact.title %></br></ul>
+    <ul><%=@contact.email %></br></ul>
+    <ul><%=@contact.phone %></br></ul>
+    <ul><%=@contact.mobile_phone %></br></ul>
+    <ul><%=@contact.address1 %></br></ul>
+    <ul><%=@contact.address2 %></br></ul>
+    <ul><%=@contact.city %></br></ul>
+    <ul><%=@contact.state %></br></ul>
+    <ul><%=@contact.zip %></br></ul>
+    <ul><%=@contact.comments %></br></ul>
+    <ul><%=@contact.conference %></br></ul>
+    <ul><%=@contact.support_package %></br></ul>
+	
+	</div>
+	
+	
+</div>
+<%if %>
+<%=link_to "Back to Contacts", "/companies/#{@contact.company_id}/contacts"%>

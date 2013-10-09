@@ -1,0 +1,123 @@
+<%@company.errors.full_messages.each do |e|%>
+	<div style='color:red'><%=e%></div>
+<%end%>
+
+<%=form_for @company do |f|%>
+<div class = 'row'>
+	<div class = 'span12'>
+	<div class = 'row'>
+			<div class = 'span3'>
+				<p>Name</p>
+				<%=f.text_field :name, :size=>25, :maxlength => 25%>
+			</div>
+			
+			<div class = 'span3'>
+				<p>Tags</p>
+				<%=f.text_field :tags%>
+			</div>
+			
+			<div class = 'span3'>
+				<p>Assigned To</p>
+				<%=f.text_field :assigned_to%>
+			</div>
+			
+			<div class = 'span3'>
+				<p>Email</p>
+				<%=f.text_field :email%>	
+			</div>
+			
+	</div>
+	
+	<div class = 'row'>
+		<ul>  </ul>
+		<ul>  </ul>
+	</div>
+	
+	<div class = 'row'>
+		
+			<div class = 'span3'>
+				<p>Website</p>
+				<%=f.text_field :website%>
+			</div>
+			
+			<div class = 'span3'>
+				<p>Phone</p>
+				<%=f.text_field :phone%>
+			</div>
+			
+			<div class = 'span3'>
+				<p>Mobile Phone</p>
+				<%=f.text_field :mobile_phone%>
+			</div>
+			
+			<div class = 'span3'>
+				<p>Fax</p>
+				<%=f.text_field :fax%>
+			</div>
+			
+		
+	</div>
+	
+	<div class = 'row'>
+		<ul>  </ul>
+		<ul>  </ul>
+	</div>
+	
+	<div class = 'row'>
+		
+			<div class = 'span3'>
+				<p>Address 1</p>
+				<%=f.text_field :address1%>
+			</div>
+			
+			<div class = 'span3'>
+				<p>Address 2</p>
+				<%=f.text_field :address2%>
+			</div>
+			
+			<div class = 'span3'>
+				<p>City</p>
+				<%=f.text_field :city%>
+			</div>
+			
+			<div class = 'span3'>
+				<p>State</p>
+				<%=f.text_field :state, :value => 'FL'%>
+			</div>
+			
+		
+	</div>
+	
+	<div class = 'row'>
+		<ul>  </ul>
+		<ul>  </ul>
+	</div>
+	
+	<div class = 'row'>
+		
+			<div class = 'span3'>
+				<p>Zip</p>
+				<%=f.text_field :zip%>
+			</div>
+			
+			<div class = 'span3'>
+				<p>Support Package</p>
+				<%=f.text_field :support_package%> </br>
+			</div>
+			
+	</div>
+
+	<div class = "row">
+		<div class = 'span8'>
+			<p>Comments</p>
+			<%=f.text_area :comments, :input_html => { :cols => 500, :rows => 5 }%>
+		</div>
+	</div>
+	</div>
+			
+</div>
+
+
+
+<%=f.submit%>
+<%end%>
