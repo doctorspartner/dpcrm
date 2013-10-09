@@ -11,7 +11,7 @@ before_filter :set_contact, :only => [:show, :edit, :update, :destroy]
   end
   
   def show
-    render :text => request.request_path
+    
   end
   
   def new
