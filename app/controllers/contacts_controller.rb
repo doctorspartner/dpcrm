@@ -2,9 +2,9 @@ class ContactsController < ApplicationController
 before_filter :set_contact, :only => [:show, :edit, :update, :destroy]
   
   def index
-   if params[:id]
-      @contacts = Contact.where(:company_id => params[:id])
-      @company = Company.find(params[:id])
+   if params[:company_id]
+      @contacts = Contact.where(:company_id => params[:company_id])
+      @company = Company.find(params[:company_id])
    else
      @contacts = Contact.all
    end
@@ -16,22 +16,74 @@ before_filter :set_contact, :only => [:show, :edit, :update, :destroy]
   
   def new
     @contact = Contact.new
+    if params[:company_id]
+      @company = Company.find(params[:company_id])
+      # dealing with contacts added with company
+    else
+      @companies = Company.all.order("name")
+      #dealing with contacts added independently
+    end
   end
   
   def create
     @contact = Contact.new(contact_params)
-    puts params.inspect
-    @contact.save
-    redirect_to contacts_path
+    
+    if @contact.save
+        if params[:company_id]
+          redirect_to company_contacts_path
+        else
+          redirect_to contacts_path
+        end
+    else
+        if params[:company_id]
+          redirect_to new_company_contact_path
+          flash[:notice] = @contact.errors.full_messages
+        else
+          redirect_to new_contact_path
+          flash[:notice] = @contact.errors.full_messages
+        end
+          #render :action => 'new', :locals => {:company_id => params[:company_id]}
+      
+      
+    end
+    
+    
+    
+   
   end
   
   def edit
-    
+    if params[:company_id]
+      @company = Company.find(params[:company_id])
+      # dealing with contacts added with company
+    else
+      @companies = Company.all.order("name")
+      #dealing with contacts added independently
+    end
   end
   
   def update
     @contact.update(contact_params)
     @contact.save
+    if @contact.save
+        if params[:company_id]
+          redirect_to company_contacts_path
+        else
+          redirect_to contacts_path
+        end
+    else
+        if params[:company_id]
+          redirect_to new_company_contact_path
+          flash[:notice] = @contact.errors.full_messages
+        else
+          redirect_to new_contact_path
+          flash[:notice] = @contact.errors.full_messages
+        end
+          #render :action => 'new', :locals => {:company_id => params[:company_id]}
+      
+      
+    end
+    
   end
   
   def destroy

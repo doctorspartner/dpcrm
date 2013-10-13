@@ -2,8 +2,8 @@ Dpcrm::Application.routes.draw do
   
 
   resources :companies do
+    resources :contacts
     member do
-      resources :contacts
       get 'test_member'
     end
     collection do

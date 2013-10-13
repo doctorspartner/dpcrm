@@ -125,7 +125,7 @@
 				<%=link_to "Back to List of Companies", companies_path, :class => 'btn btn-primary btn-mini'%>
 				<%=link_to "Edit Company", edit_company_path(@company), :class => 'btn btn-primary btn-mini'%>
 				<%= link_to "Delete Company", "/companies/#{@company.id}", :method => 'delete', :class => 'btn btn-primary btn-mini'%>
-				<%=link_to "View Contacts", contacts_path, :class => 'btn btn-primary btn-mini'%>
+				<%=link_to "View Contacts", company_contacts_path(:company_id => params[:id]), :class => 'btn btn-primary btn-mini'%>
 			</div>
 	</div>
 

@@ -1,0 +1,109 @@
+<%=simple_form_for @contact, :url => company_contacts_path(@company, @contact), :method => :post do |f| %>
+			<div class = 'row'>
+			<div class = 'span12'>
+			<div class = 'row'>
+					<div class = 'span3'>
+						<%=f.input :first_name %>
+					</div>
+					
+					<div class = 'span3'>
+		    			<%=f.input :last_name %>
+					</div>
+					
+					<div class = 'span3'>
+						<%=f.input :tags %>
+					</div>
+					
+					<div class = 'span3'>
+						<%=f.input :assigned_to %>
+					</div>
+					
+			</div>
+			
+			<div class = 'row'>
+				<ul>  </ul>
+				<ul>  </ul>
+			</div>
+			
+			<div class = 'row'>
+				
+					<div class = 'span3'>
+						<%=f.input :title %>
+					</div>
+					
+					<div class = 'span3'>
+						<%=f.input :email %>
+					</div>
+					
+					<div class = 'span3'>
+						 <%=f.input :phone %>
+					</div>
+					
+					<div class = 'span3'>
+						<%=f.input :mobile_phone %>
+					</div>
+					
+				
+			</div>
+			
+			<div class = 'row'>
+				<ul>  </ul>
+				<ul>  </ul>
+			</div>
+			
+			<div class = 'row'>
+				
+					<div class = 'span3'>
+						<%=f.input :address1 %>
+					</div>
+					
+					<div class = 'span3'>
+						<%=f.input :address2 %>
+					</div>
+					
+					<div class = 'span3'>
+						<%=f.input :city %>
+					</div>
+					
+					<div class = 'span3'>
+						<%=f.input :state %>
+					</div>
+					
+				
+			</div>
+			
+			<div class = 'row'>
+				<ul>  </ul>
+				<ul>  </ul>
+			</div>
+			
+			<div class = 'row'>
+				
+					<div class = 'span3'>
+						 <%=f.input :zip %>
+					</div>
+					
+					<div class = 'span3'>
+						<%=f.input :conference %>
+					</div>
+					
+					<div class = 'span3'>
+						<%=f.input :support_package %>
+					</div>
+					
+			</div>
+		
+			<div class = "row">
+				<div class = 'span8'>
+					<%=f.input :comments, :input_html => { :cols => 700, :rows => 5, :style => 'width: 500px' } %>
+				</div>
+			</div>
+			</div>
+			
+	</div>
+<%=f.input :company_id, :as => :hidden, :input_html => { :value => params[:company_id] }%>
+
+<%=f.submit%>
+
+    
+<%end%>

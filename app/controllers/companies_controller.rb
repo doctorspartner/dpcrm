@@ -20,8 +20,7 @@ class CompaniesController < ApplicationController
               redirect_to company_path(@company)
             else
               render :action => 'new'
-    end
-    
+            end
     
     
   end
@@ -37,8 +36,11 @@ class CompaniesController < ApplicationController
   def update
     @company = Company.find(params[:id])
     @company.update(company_params)
-    @company.save
-    redirect_to company_path(@company)
+    if @company.save
+      redirect_to company_path(@company)
+    else
+      render :action => 'new'
+    end
   end
   
   def destroy

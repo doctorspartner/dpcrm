@@ -1,5 +1,5 @@
 <h2> List of Contacts 
-	<%if params[:id]%>
+	<%if params[:company_id]%>
 		for <%=@company.name%>
 	<%end%>
 	</h2>
@@ -7,16 +7,20 @@
 	
 
 <div class = 'row'>
-	<div class = 'span3'>
+	<div class = 'span2'>
 		<b>Last Name</b>
 	</div>
 	
-	<div class = 'span3'>
+	<div class = 'span2'>
 		<b>First Name</b>
 	</div>
 	
-	<div class = 'span3'>
+	<div class = 'span2'>
 		<b>Phone </b>
+	</div>
+	
+	<div class = 'span6'>
+		<b>Comments </b>
 	</div>
 	
 </div>
@@ -24,20 +28,24 @@
 <%@contacts.each do |c|%>
 <div class = 'row'>
 	
-	<div class = 'span3'>
-		<%if params[:id]%>
+	<div class = 'span2'>
+		<%if params[:company_id]%>
 			<%=link_to c.last_name, "/companies/#{@company.id}/contacts/#{c.id}"%>
 		<%else%>
 			<%=link_to c.last_name, "/contacts/#{c.id}"%>
 		<%end%>
 	</div>
 	
-	<div class = 'span3'>
+	<div class = 'span2'>
 		<%=c.first_name%>
 	</div>
 	
-	<div class = 'span3'>
+	<div class = 'span2'>
 		<%=c.phone%></p>
+	</div>
+	
+	<div class = 'span6'>
+		<%=c.comments%></p>
 	</div>
 
 </div>
@@ -45,9 +53,9 @@
 
 <%end%>
 
-<%if params[:id]%>
-	<%=link_to 'Add a new Contact', new_contact_path, :class => 'btn btn-mini btn-primary'%>
+<%if params[:company_id]%>
+	<%=link_to 'Add a new Contact', new_company_contact_path, :class => 'btn btn-mini btn-primary'%>
 	<%=link_to 'Return to Company Info', company_path(@company), :class => 'btn btn-mini btn-primary'%>
 <%else%>
-	<%=link_to 'Add a new Contact', "/contacts/new", :class => 'btn btn-mini btn-primary'%>
+	<%=link_to 'Add a new Contact', new_contact_path, :class => 'btn btn-mini btn-primary'%>
 <%end%>

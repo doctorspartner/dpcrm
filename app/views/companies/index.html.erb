@@ -1,7 +1,15 @@
 <h2> List of Companies </h2>
 
 <%@companies.each do |c|%>
-	<p> <%=link_to c.name, "/companies/#{c.id}"%> </br> </p>
+	<div class = 'row'>
+	<div class = 'span3'>
+		<p> <%=link_to c.name, company_path(c)%> </br> </p>
+	</div>
+	<div class = 'span9'>
+		<p> <%=c.comments%> </br> </p>
+	</div>
+	</div>
+	
 <%end%>
 
-<%=link_to "Create a Company", "/companies/new", :class => 'btn btn-mini btn-primary'%>
+<%=link_to "Create a Company", new_company_path, :class => 'btn btn-mini btn-primary'%>
