@@ -11,7 +11,9 @@ before_filter :set_contact, :only => [:show, :edit, :update, :destroy]
   end
   
   def show
-    
+    if params[:company_id]
+      @company = Company.find(params[:company_id])
+    end
   end
   
   def new
@@ -87,7 +89,15 @@ before_filter :set_contact, :only => [:show, :edit, :update, :destroy]
   end
   
   def destroy
+    #render :text => params
     @contact.destroy
+        if params[:company_id]
+          redirect_to company_contacts_path
+          flash[:notice] = 'Contact Deleted'
+        else
+          redirect_to contacts_path
+          flash[:notice] = 'Contact Deleted'
+        end 
   end
   
 private

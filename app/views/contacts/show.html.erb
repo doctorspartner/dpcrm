@@ -51,7 +51,9 @@
 <%if params[:company_id]%>
 		<%=link_to "Back to Contacts", company_contacts_path, :class => 'btn btn-mini btn-primary'%>
 		<%=link_to "Edit Contact", edit_company_contact_path(@company, @contact), :class => 'btn btn-mini btn-primary'%>
+		<%=link_to "Delete Contact", company_contact_path(@company, @contact), method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-mini btn-primary'%>
 <%else%>
 		<%=link_to "Back to Contacts", contacts_path, :class => 'btn btn-mini btn-primary'%>
 		<%=link_to 'Edit Contact', edit_contact_path(@contact), :class => 'btn btn-mini btn-primary'%>
+		<%=link_to "Delete Contact", contact_path(@contact), method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-mini btn-primary'%>
 <%end%>

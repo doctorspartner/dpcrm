@@ -2,8 +2,11 @@
 
 <%if params[:company_id]%>
 	<%=render 'form_company_contact'%>
+	<%=link_to 'Cancel', company_contacts_path, :class => 'btn btn-primary btn-mini'%>
 <%else%>
 	<%=render 'form_contact'%>
+	<%=link_to 'Cancel', contacts_path, :class => 'btn btn-primary btn-mini'%>
 <%end%>
 
-<%=link_to 'Cancel', contacts_path, :class => 'btn btn-primary btn-mini'%>
+
+
